@@ -19,17 +19,13 @@ public class Health : MonoBehaviour
     
     public void Set(int value) => current.Value = value;
     
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("Bullet"))
-        { 
-            Remove(1);        
-            Destroy(collision.gameObject);
-            if (Current <= 0)
-            {
-                Destroy(gameObject);
-            }
-            
-        }
+    // otomatik ateş
+    // merkezde dursun silindirler buna gelsin
+    // OR
+    // İleri dogru gidiyo oyuncu saga sola haraket yok ölmeden bölümün sonuna varmaya çalışır.
+    
+    
+    //Farklı mermiler.
+    // lean pool
+    
     }
-}
