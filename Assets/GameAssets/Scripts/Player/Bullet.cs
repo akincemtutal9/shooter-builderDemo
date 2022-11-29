@@ -12,7 +12,7 @@ using UnityEngine;
 public class Bullet : HealthDependentBehaviour
 {
     public float life = 10f;
-    [SerializeField] private GameObject targetObjectPrefab;
+   
     void Start()
     {
         Destroy(gameObject, life);
@@ -34,4 +34,3 @@ public class Bullet : HealthDependentBehaviour
         // 
     }
 }
-

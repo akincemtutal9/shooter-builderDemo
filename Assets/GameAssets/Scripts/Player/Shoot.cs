@@ -7,23 +7,17 @@ public class Shoot : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
     public float bulletSpeed;
-    public float nextFireCheck;
-    public float nextFireRate;
-    void Start()
-    {
-        
-    }
-
+    [SerializeField] float nextFireCheck;
+    [SerializeField] float fireRate;
+    
     // Update is called once per frame
     void Update()
     {
-        
         if (Time.time > nextFireCheck)
         {
-            nextFireCheck = Time.time + nextFireRate;
+            nextFireCheck = Time.time + fireRate;
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
-            
         }
     }
 }

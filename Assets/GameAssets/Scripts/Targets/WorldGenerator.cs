@@ -46,6 +46,7 @@ namespace GameAssets.Scripts
                 scale.z = distance;
                 newTarget.transform.localScale = scale;
                 newTarget.transform.SetParent(root.transform);
+                
             }
 
             Observable.ReturnUnit().DelayFrame(1).Subscribe(_ =>
@@ -53,6 +54,7 @@ namespace GameAssets.Scripts
                 var healths = FindObjectsOfType<Health>();
                 Array.ForEach(healths, health => health.Set(Random.Range(minHealth, maxHealth)));
             });
+            
         }
         void DestroyRoot()
         {
