@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerRotate : MonoBehaviour
 {
     [SerializeField] private int rotateSpeed;
     //[SerializeField] private DynamicJoystick dynamicJoystick;

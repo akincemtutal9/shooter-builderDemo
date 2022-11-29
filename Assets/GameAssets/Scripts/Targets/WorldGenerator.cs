@@ -2,6 +2,8 @@
 using UniRx;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using Lean.Pool;
+using TMPro;
 
 namespace GameAssets.Scripts
 {
@@ -15,15 +17,15 @@ namespace GameAssets.Scripts
 
         [SerializeField] private int minHealth = 3;
         [SerializeField] private int maxHealth = 10;
-
+        
         private void Start()
         {
             Generate();
+           
         }
-
+        
         private const string Root = nameof(Root);
 
-        
         void Generate()
         {
             DestroyRoot();
@@ -40,13 +42,13 @@ namespace GameAssets.Scripts
 
                 distance = randomXZScale.Randomize();
 
-                var newTarget = Instantiate(prefab, position, Quaternion.identity);
+                var newTarget = LeanPool.Spawn(prefab, position, Quaternion.identity);
                 var scale = newTarget.transform.localScale;
                 scale.x = distance;
                 scale.z = distance;
                 newTarget.transform.localScale = scale;
                 newTarget.transform.SetParent(root.transform);
-                
+                root.transform.GetChild(0).transform.gameObject.SetActive(false);
             }
 
             Observable.ReturnUnit().DelayFrame(1).Subscribe(_ =>

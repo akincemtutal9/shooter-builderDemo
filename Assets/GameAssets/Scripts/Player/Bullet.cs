@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using GameAssets.Scripts;
+using Lean.Pool;
 using UniRx;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -27,7 +28,7 @@ public class Bullet : HealthDependentBehaviour
             Destroy(gameObject);
             if (collision.gameObject.GetComponent<Health>().Current <= 0)
             {
-                Destroy(collision.gameObject);
+                LeanPool.Despawn(collision.gameObject);
             }
         }
         // Destroy etsin asobservable a bak
