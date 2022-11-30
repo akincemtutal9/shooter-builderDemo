@@ -351,7 +351,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 7123907245769652527}
-  scalePerHealth: 0.2
+  scalePerHealth: 1
+  _gameSettings: {fileID: 11400000, guid: 925bf16ddb98a794190fe796ad1422a0, type: 2}
 --- !u!114 &6596893653046442481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,7 +393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76344f40b69609a479cd6aaa0da39b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goSpeed: 0.75
+  goSpeed: 0
+  _gameSettings: {fileID: 11400000, guid: 925bf16ddb98a794190fe796ad1422a0, type: 2}
 --- !u!114 &2733053785616658493
 MonoBehaviour:
   m_ObjectHideFlags: 0

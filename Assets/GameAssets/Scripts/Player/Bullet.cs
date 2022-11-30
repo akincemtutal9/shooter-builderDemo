@@ -12,11 +12,16 @@ using UnityEngine;
 
 public class Bullet : HealthDependentBehaviour
 {
-    public float life = 10f;
-   
+    public float lifeOfBullet;
+    public int damage;
+
+    [SerializeField] private GameSettings _gameSettings;
     void Start()
     {
-        Destroy(gameObject, life);
+
+        lifeOfBullet = _gameSettings.bulletObjectLife;
+        damage = _gameSettings.bulletDamage;
+        Destroy(gameObject, lifeOfBullet);
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -24,7 +29,7 @@ public class Bullet : HealthDependentBehaviour
         
         if (collision.gameObject.CompareTag("Target"))
         {
-            collision.gameObject.GetComponent<Health>().Remove(1);
+            collision.gameObject.GetComponent<Health>().Remove(damage);
             Destroy(gameObject);
             if (collision.gameObject.GetComponent<Health>().Current <= 0)
             {

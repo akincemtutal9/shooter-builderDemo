@@ -17,11 +17,18 @@ namespace GameAssets.Scripts
 
         [SerializeField] private int minHealth = 3;
         [SerializeField] private int maxHealth = 10;
+
+        [SerializeField] private GameSettings _gameSettings;
         
         private void Start()
         {
+            count = _gameSettings.howManyCylindersWillSpawn;
+            randomXZScale = _gameSettings.CylinderRandomXZScale;
+            prefab = _gameSettings.targetPrefab;
+            distanceMultiplier = _gameSettings.distanceMultiplier;
+            minHealth = _gameSettings.minHealth;
+            maxHealth = _gameSettings.maxHealth;
             Generate();
-           
         }
         
         private const string Root = nameof(Root);

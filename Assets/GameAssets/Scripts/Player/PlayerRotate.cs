@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerRotate : MonoBehaviour
@@ -5,6 +6,13 @@ public class PlayerRotate : MonoBehaviour
     [SerializeField] private int rotateSpeed;
     //[SerializeField] private DynamicJoystick dynamicJoystick;
     [SerializeField] private FloatingJoystick floatingJoystick;
+
+    [SerializeField] private GameSettings _gameSettings;
+    private void Start()
+    {
+        rotateSpeed = _gameSettings.rotateSpeed;
+    }
+
     private void Update()
     {
         

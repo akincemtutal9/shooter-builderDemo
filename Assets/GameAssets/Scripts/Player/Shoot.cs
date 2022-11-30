@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,17 @@ public class Shoot : MonoBehaviour
     public float bulletSpeed;
     [SerializeField] float nextFireCheck;
     [SerializeField] float fireRate;
-    
+
+    [SerializeField] private GameSettings _gameSettings;
+
+    private void Start()
+    {
+        bulletPrefab = _gameSettings.bulletPrefab;
+        bulletSpeed = _gameSettings.shootSpeed;
+        nextFireCheck = _gameSettings.shootNextFireCheck;
+        fireRate = _gameSettings.shootFireRate;
+    }
+
     // Update is called once per frame
     void Update()
     {

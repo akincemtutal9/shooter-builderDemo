@@ -8,9 +8,11 @@ public class GoTowardsPlayer : MonoBehaviour
     private Transform player;
     private Vector3 direction;
     public float goSpeed;
-    
+    [SerializeField] private GameSettings _gameSettings;
+
     void Start()
     {
+        goSpeed = _gameSettings.cylinderMoveSpeed;
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 

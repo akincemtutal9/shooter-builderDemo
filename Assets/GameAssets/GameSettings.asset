@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e17be44776dbf4ba01ad418d29df37, type: 3}
+  m_Name: GameSettings
+  m_EditorClassIdentifier: 
+  bulletObjectLife: 2
+  bulletDamage: 1
+  rotateSpeed: 360
+  bulletPrefab: {fileID: 702136405519766210, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+  shootSpeed: 5
+  shootNextFireCheck: 1
+  shootFireRate: 0.1
+  cylinderHeightScaleChange: 0.2
+  cylinderMoveSpeed: 1
+  howManyCylindersWillSpawn: 60
+  CylinderRandomXZScale:
+    min: 1
+    max: 3
+  targetPrefab: {fileID: 5446002135809612477, guid: 889642083a69b1a4b86df312d3ae4e0f, type: 3}
+  distanceMultiplier: 10
+  minHealth: 3
+  maxHealth: 10
