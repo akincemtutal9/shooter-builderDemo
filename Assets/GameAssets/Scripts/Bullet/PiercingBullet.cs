@@ -29,7 +29,7 @@ public class PiercingBullet : HealthDependentBehaviour
 
         if (collision.gameObject.CompareTag("Target"))
         {
-            collision.gameObject.GetComponent<Health>().Remove(1);
+            collision.gameObject.GetComponent<Health>().Remove((int)damage);
             if (collision.gameObject.GetComponent<Health>().Current <= 0)
             {
                 Destroy(collision.gameObject);

@@ -15,24 +15,26 @@ public class LazerBullet : HealthDependentBehaviour
     public bool canShoot;
     public float shootTime;
     public float waitToShootInSeconds;
-    
-    public float timer;
 
     [SerializeField] private GameSettings _gameSettings;
 
-    //public float shootTime;
-    //public float waitForShootTime;
-    
+    private float timer;
+  
     private void Start()
     {
-        life = _gameSettings.piercingBulletLife;
-        damage = _gameSettings.piercingBulletDamage;
+        
+      //  life = _gameSettings.lazerBulletLife;
+       // damage = _gameSettings.lazerBulletdamage;
+       // canShoot = _gameSettings.canLazerShoot;
+       // shootTime = _gameSettings.lazerShootTime;
+       // waitToShootInSeconds = _gameSettings.lazerWaitToShootInSeconds;
+        
         Destroy(gameObject, life);
     }
 
     private void Update()
     {
-
+       
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -40,7 +42,7 @@ public class LazerBullet : HealthDependentBehaviour
 
         if (collision.gameObject.CompareTag("Target"))
         {
-            collision.gameObject.GetComponent<Health>().Remove(1);
+            collision.gameObject.GetComponent<Health>().Remove((int)damage);
             if (collision.gameObject.GetComponent<Health>().Current <= 0)
             {
                 Destroy(collision.gameObject);

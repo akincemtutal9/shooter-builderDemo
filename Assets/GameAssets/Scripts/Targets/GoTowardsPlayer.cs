@@ -9,22 +9,23 @@ public class GoTowardsPlayer : MonoBehaviour
     private Vector3 direction;
     public float goSpeed;
     [SerializeField] private GameSettings _gameSettings;
-
+    private Rigidbody rb;
     void Start()
     {
         goSpeed = _gameSettings.cylinderMoveSpeed;
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        var position = player.position;
-        var position1 = transform.position;
-        distance = Vector3.Distance(position , position1);
-        direction = position - position1;
+        var playerPos = player.position;
+        var transformPos = transform.position;
+        distance = Vector3.Distance(playerPos , transformPos);
+        direction = playerPos - transformPos;
 
-        position1 += direction.normalized * (goSpeed * Time.deltaTime);
-        transform.position = position1;
+        transformPos += direction.normalized * (goSpeed * Time.deltaTime);
+        transform.position = transformPos;
     }
 }
