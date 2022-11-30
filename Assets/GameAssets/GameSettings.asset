@@ -14,11 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletObjectLife: 2
   bulletDamage: 1
-  rotateSpeed: 360
+  piercingBulletLife: 3
+  piercingBulletDamage: 1
+  rotateSpeed: 36000
   bulletPrefab: {fileID: 702136405519766210, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
   shootSpeed: 5
   shootNextFireCheck: 1
-  shootFireRate: 0.1
+  shootFireRate: 1
+  pushBulletLife: 3
+  pushBulletDamage: 1
+  pushBulletPushForce: 20
   cylinderHeightScaleChange: 0.2
   cylinderMoveSpeed: 1
   howManyCylindersWillSpawn: 60

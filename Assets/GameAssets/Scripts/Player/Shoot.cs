@@ -24,6 +24,11 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       Shooting();   
+    }
+
+    public void Shooting()
+    {
         if (Time.time > nextFireCheck)
         {
             nextFireCheck = Time.time + fireRate;
@@ -31,4 +36,6 @@ public class Shoot : MonoBehaviour
             bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
         }
     }
+    
+    
 }

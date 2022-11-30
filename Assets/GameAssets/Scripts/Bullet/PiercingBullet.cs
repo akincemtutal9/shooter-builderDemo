@@ -3,37 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using GameAssets.Scripts;
-using Lean.Pool;
 using UniRx;
 using Unity.VisualScripting;
 using UnityEngine;
 
-
-
-public class Bullet : HealthDependentBehaviour
+public class PiercingBullet : HealthDependentBehaviour
 {
-    public float lifeOfBullet;
-    public int damage;
-
+    public float life;
+    public float damage;
     [SerializeField] private GameSettings _gameSettings;
+    
+
+    //public float shootTime;
+    //public float waitForShootTime;
     void Start()
     {
-
-        lifeOfBullet = _gameSettings.bulletObjectLife;
-        damage = _gameSettings.bulletDamage;
-        Destroy(gameObject, lifeOfBullet);
+        life = _gameSettings.piercingBulletLife;
+        damage = _gameSettings.piercingBulletDamage;
+        
+        Destroy(gameObject, life);
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-        
+
         if (collision.gameObject.CompareTag("Target"))
         {
-            collision.gameObject.GetComponent<Health>().Remove(damage);
-            Destroy(gameObject);
+            collision.gameObject.GetComponent<Health>().Remove(1);
             if (collision.gameObject.GetComponent<Health>().Current <= 0)
             {
-                LeanPool.Despawn(collision.gameObject);
+                Destroy(collision.gameObject);
             }
         }
         // Destroy etsin asobservable a bak

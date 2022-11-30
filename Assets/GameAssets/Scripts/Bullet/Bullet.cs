@@ -3,27 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using GameAssets.Scripts;
+using Lean.Pool;
 using UniRx;
 using Unity.VisualScripting;
 using UnityEngine;
-public class Bullet2 : HealthDependentBehaviour
+
+public class Bullet : MonoBehaviour
 {
-    public float life = 10f;
+    public float lifeOfBullet;
+    public int damage;
+    
+    [SerializeField] private GameSettings _gameSettings;
     
     void Start()
     {
-        Destroy(gameObject, life);
-    }
 
+        lifeOfBullet = _gameSettings.bulletObjectLife;
+        damage = _gameSettings.bulletDamage;
+        Destroy(gameObject, lifeOfBullet);
+    }
+    
     private void OnTriggerEnter(Collider collision)
     {
-        
         if (collision.gameObject.CompareTag("Target"))
         {
-            collision.gameObject.GetComponent<Health>().Remove(1);
+            collision.gameObject.GetComponent<Health>().Remove(damage);
+            Destroy(gameObject);
             if (collision.gameObject.GetComponent<Health>().Current <= 0)
             {
-                Destroy(collision.gameObject);
+                LeanPool.Despawn(collision.gameObject);
             }
         }
         // Destroy etsin asobservable a bak
