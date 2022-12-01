@@ -28,11 +28,15 @@ MonoBehaviour:
   pushBulletLife: 3
   pushBulletDamage: 1
   pushBulletPushForce: 20
-  rotateSpeed: 36000
-  bulletPrefab: {fileID: 2379933998783248224, guid: 2be334ade14029d42a250fc56e7fb585, type: 3}
+  bulletPrefab: {fileID: 6164306508931201495, guid: 455999c8e3ee7af4f898cdcaa8cb14e8, type: 3}
   shootSpeed: 40
   shootNextFireCheck: 1
   shootFireRate: 0.4
+  laserGunRange: 50
+  laserGunFireRate: 0.1
+  laserDamage: 1
+  laserDuration: 3
+  rotateSpeed: 36000
   cylinderHeightScaleChange: 0.2
   cylinderMoveSpeed: 1
   howManyCylindersWillSpawn: 60
