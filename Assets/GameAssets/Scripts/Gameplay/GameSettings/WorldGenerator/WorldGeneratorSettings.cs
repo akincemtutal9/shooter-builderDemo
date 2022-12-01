@@ -11,4 +11,6 @@ public partial class GameSettings
     public int distanceMultiplier;
     public int minHealth;
     public int maxHealth;
+    public float worldSpawnAngle;
+    public float setFirstCylinderStartAngle;
 }

@@ -14,7 +14,8 @@ namespace GameAssets.Scripts
         [SerializeField] private RandomXZScale randomXZScale;
         [SerializeField] private GameObject prefab;
         [SerializeField] private float distanceMultiplier;
-
+        [SerializeField] private float worldSpawnAngle;
+        [SerializeField] private float setFirstCylinderStartAngle;
         [SerializeField] private int minHealth = 3;
         [SerializeField] private int maxHealth = 10;
 
@@ -28,6 +29,8 @@ namespace GameAssets.Scripts
             distanceMultiplier = _gameSettings.distanceMultiplier;
             minHealth = _gameSettings.minHealth;
             maxHealth = _gameSettings.maxHealth;
+            worldSpawnAngle = _gameSettings.worldSpawnAngle;
+            setFirstCylinderStartAngle = _gameSettings.setFirstCylinderStartAngle;
             Generate();
         }
         
@@ -42,9 +45,9 @@ namespace GameAssets.Scripts
             for (int i = 0; i < count; i++)
             {
                 var position = startingTransform.position;
-                position.x = Mathf.Cos((float) i / count * 360 * Mathf.Deg2Rad) * distance *
+                position.x = Mathf.Cos((float) (setFirstCylinderStartAngle + i) / count * worldSpawnAngle * Mathf.Deg2Rad) * distance *
                              (distanceMultiplier * (1 + (float) i / count));
-                position.z = Mathf.Sin((float) i / count * 360 * Mathf.Deg2Rad) * distance *
+                position.z = Mathf.Sin((float)(setFirstCylinderStartAngle + i) / count * worldSpawnAngle * Mathf.Deg2Rad) * distance *
                              (distanceMultiplier * (1 + (float) i / count));
 
                 distance = randomXZScale.Randomize();
