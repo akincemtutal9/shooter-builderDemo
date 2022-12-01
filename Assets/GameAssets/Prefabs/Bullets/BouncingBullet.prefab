@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6643505763850971925
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 702136405519766210, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_Name
+      value: BouncingBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217887782628933284, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217887782628933284, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217887782628933284, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217887782628933284, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217887782628933284, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217887782628933284, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217887782628933284, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217887782628933284, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217887782628933284, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217887782628933284, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217887782628933284, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+--- !u!1 &6164306508931201495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 702136405519766210, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+  m_PrefabInstance: {fileID: 6643505763850971925}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5663209503098053728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164306508931201495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf06a4d67604614482f7b4e2ce86627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeOfBullet: 0
+  damage: 0
+  physicMaterial: {fileID: 13400000, guid: a82c4693b123a5e48bf17e1e48ee055a, type: 2}
+  bouncingBullethowManyTimesBulletWillBounce: 0
+  _gameSettings: {fileID: 11400000, guid: 925bf16ddb98a794190fe796ad1422a0, type: 2}

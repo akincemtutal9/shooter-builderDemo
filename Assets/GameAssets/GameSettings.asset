@@ -34,7 +34,7 @@ MonoBehaviour:
   shootNextFireCheck: 1
   shootFireRate: 0.4
   cylinderHeightScaleChange: 0.2
-  cylinderMoveSpeed: 0
+  cylinderMoveSpeed: 1
   howManyCylindersWillSpawn: 60
   CylinderRandomXZScale:
     min: 1
