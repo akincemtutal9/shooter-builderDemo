@@ -29,7 +29,7 @@ MonoBehaviour:
   pushBulletDamage: 1
   pushBulletPushForce: 20
   rotateSpeed: 36000
-  bulletPrefab: {fileID: 702136405519766210, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+  bulletPrefab: {fileID: 2379933998783248224, guid: 2be334ade14029d42a250fc56e7fb585, type: 3}
   shootSpeed: 40
   shootNextFireCheck: 1
   shootFireRate: 0.4

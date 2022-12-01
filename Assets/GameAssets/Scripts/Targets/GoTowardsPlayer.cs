@@ -20,6 +20,10 @@ public class GoTowardsPlayer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (player == null)
+        {
+            return;
+        }
         var playerPos = player.position;
         var transformPos = transform.position;
         distance = Vector3.Distance(playerPos , transformPos);
