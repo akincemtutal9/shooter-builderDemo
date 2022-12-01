@@ -18,14 +18,15 @@ public class GoTowardsPlayer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         var playerPos = player.position;
         var transformPos = transform.position;
         distance = Vector3.Distance(playerPos , transformPos);
         direction = playerPos - transformPos;
 
-        transformPos += direction.normalized * (goSpeed * Time.deltaTime);
-        transform.position = transformPos;
+        transformPos += direction.normalized * (goSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(transformPos);
+        //transform.position = transformPos;
     }
 }
