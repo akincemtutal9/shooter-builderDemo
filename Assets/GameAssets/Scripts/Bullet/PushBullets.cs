@@ -42,10 +42,6 @@ public class PushBullets : MonoBehaviour
             collision.gameObject.GetComponent<Health>().Remove(damage);
             collision.gameObject.transform.Translate(-direction.normalized * pushForce * Time.deltaTime);
             Destroy(gameObject);
-            if (collision.gameObject.GetComponent<Health>().Current <= 0)
-            {
-                LeanPool.Despawn(collision.gameObject);
-            }
         }
         // Destroy etsin asobservable a bak
         // 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using GameAssets.Scripts;
+using Lean.Pool;
 using UniRx;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ public class TargetDie : HealthDependentBehaviour
                 target.GetComponent<Health>().Current = _health;
                 if (_health <= 0)
                 {
-                    Destroy(gameObject);
+                    LeanPool.Despawn(gameObject);
                 }
             }
         ).AddTo(gameObject);
