@@ -8,6 +8,7 @@ public class PlayerRotate : MonoBehaviour
     [SerializeField] private FloatingJoystick floatingJoystick;
 
     [SerializeField] private GameSettings _gameSettings;
+    public Vector3 moveDirection;
     private void Start()
     {
         rotateSpeed = _gameSettings.rotateSpeed;
@@ -18,8 +19,8 @@ public class PlayerRotate : MonoBehaviour
         
         float horizontalInput = floatingJoystick.Horizontal;
         float verticalInput = floatingJoystick.Vertical;
-
-        Vector3 moveDirection = new Vector3(horizontalInput, 0, verticalInput);
+        
+        moveDirection = new Vector3(horizontalInput, 0, verticalInput);
         //Vector3 moveDirection = Vector3.forward * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal;
         moveDirection.Normalize();
         

@@ -36,6 +36,7 @@ MonoBehaviour:
   laserGunFireRate: 0.1
   laserDamage: 1
   laserDuration: 3
+  laserWaitForShoot: 2
   rotateSpeed: 36000
   cylinderHeightScaleChange: 0.2
   cylinderMoveSpeed: 1

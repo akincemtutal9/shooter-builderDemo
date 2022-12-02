@@ -11,7 +11,11 @@ public class Health : MonoBehaviour
 
     public IObservable<int> Observe => current;
 
-    public int Current => current.Value;
+    public int Current
+    {
+        get => current.Value;
+        set => current.Value = value;
+    }
 
     public void Add(int amount) => current.Value += amount;
 

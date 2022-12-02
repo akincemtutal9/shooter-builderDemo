@@ -65,6 +65,7 @@ namespace GameAssets.Scripts
             {
                 var healths = FindObjectsOfType<Health>();
                 Array.ForEach(healths, health => health.Set(Random.Range(minHealth, maxHealth)));
+                
             });
             
         }

@@ -8,6 +8,7 @@ public partial class GameSettings
     public float laserGunFireRate;
     public int laserDamage;
     public float laserDuration;
+    public float laserWaitForShoot;
 
 
 

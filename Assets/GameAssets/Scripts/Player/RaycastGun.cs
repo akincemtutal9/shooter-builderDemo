@@ -2,7 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
+using UnityEngine.EventSystems;
+
 [RequireComponent(typeof(LineRenderer))]
 public class RaycastGun : MonoBehaviour
 {
@@ -10,12 +11,16 @@ public class RaycastGun : MonoBehaviour
     public float gunRange;
     public float fireRate;
     public float laserDuration;
+    public float waitForShootLaser;
     public int laserDamage;
 
     LineRenderer laserLine;
-    float fireTimer;
+    private float timer;
+    private bool canShoot;
 
     [SerializeField] private GameSettings _gameSettings;
+    private PlayerRotate pr;
+
     
     void Awake()
     {
@@ -28,43 +33,58 @@ public class RaycastGun : MonoBehaviour
         fireRate = _gameSettings.laserGunFireRate;
         laserDuration = _gameSettings.laserDuration;
         laserDamage = _gameSettings.laserDamage;
+        waitForShootLaser = _gameSettings.laserWaitForShoot;
+        timer = 0f;
+
+        StartCoroutine(StartLaser());
     }
-    void FixedUpdate()
+
+    IEnumerator StartLaser()
     {
-        fireTimer += Time.deltaTime;
-        if(fireTimer > fireRate)
+        while (true)
         {
-            fireTimer = 0;
+            var laserShoot = StartCoroutine(ShootLaser());
+            yield return new WaitForSeconds(laserDuration);// laser duration kadar sıkıyor
+            Debug.Log("Stopping laser");
+            StopCoroutine(laserShoot);
+            laserLine.enabled = false;
+            yield return new WaitForSeconds(waitForShootLaser);// wait for shoot laser kadar ateş etme.
+        }
+    }
+
+    IEnumerator ShootLaser()
+    {
+        Debug.Log("starting laser");
+        laserLine.enabled = true;
+        
+        while (true)
+        {
             laserLine.SetPosition(0, laserOrigin.position);
-            //Vector3 rayOrigin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
             Vector3 rayOrigin = laserOrigin.position;
             RaycastHit hit;
-            if(Physics.Raycast(rayOrigin, laserOrigin.transform.TransformDirection(Vector3.forward), out hit, gunRange))
+            if (Physics.Raycast(rayOrigin, laserOrigin.transform.TransformDirection(Vector3.forward), out hit, gunRange))
             {
                 laserLine.SetPosition(1, hit.point);
-                if (hit.collider.gameObject.CompareTag("Target"))
+                var health = hit.transform.GetComponent<Health>();
+//                if (hit.collider.gameObject.CompareTag("Target"))
+                if (health)
                 {
                     // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
-                    hit.transform.gameObject.GetComponent<Health>().Remove(laserDamage);
-                    if (hit.transform.gameObject.GetComponent<Health>().Current <= 0)
+                    health.Remove(laserDamage);
+                    if (health.Current <= 0)
                     {
-                        Destroy(hit.transform.gameObject);
+                        //Destroy(hit.transform.gameObject);
                     }
                 }
             }
             else
             {
-                laserLine.SetPosition(1, rayOrigin + (laserOrigin.transform.TransformDirection(Vector3.forward * gunRange)));
+                laserLine.SetPosition(1,
+                    rayOrigin + (laserOrigin.transform.TransformDirection(Vector3.forward * gunRange)));
             }
-            //StartCoroutine(ShootLaser());
+
+            yield return new WaitForSeconds(fireRate);// fire rate kadar hasar veriyor olması
         }
+        
     }
-    
-    IEnumerator ShootLaser()
-    {
-        laserLine.enabled = true;
-        yield return new WaitForSeconds(laserDuration);
-        laserLine.enabled = false;
-    }
-    
 }
