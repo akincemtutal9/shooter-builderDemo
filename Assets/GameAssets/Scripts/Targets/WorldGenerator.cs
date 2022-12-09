@@ -52,7 +52,7 @@ namespace GameAssets.Scripts
 
                 distance = randomXZScale.Randomize();
 
-                var newTarget = LeanPool.Spawn(prefab, position, Quaternion.identity);
+                var newTarget = LeanPool.Spawn(prefab, position , Quaternion.identity);
                 var scale = newTarget.transform.localScale;
                 scale.x = distance;
                 scale.z = distance;
@@ -61,12 +61,11 @@ namespace GameAssets.Scripts
                 root.transform.GetChild(0).transform.gameObject.SetActive(false);
             }
 
-            Observable.ReturnUnit().DelayFrame(1).Subscribe(_ =>
-            {
+           // Observable.ReturnUnit().DelayFrame(1).Subscribe(_ =>
+           // {
                 var healths = FindObjectsOfType<Health>();
                 Array.ForEach(healths, health => health.Set(Random.Range(minHealth, maxHealth)));
-                
-            });
+           // });
             
         }
         void DestroyRoot()

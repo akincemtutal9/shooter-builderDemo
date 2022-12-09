@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Lean.Pool;
 using UnityEngine;
 
 public class Shoot : MonoBehaviour
@@ -32,7 +33,7 @@ public class Shoot : MonoBehaviour
         if (Time.time > nextFireCheck)
         {
             nextFireCheck = Time.time + fireRate;
-            var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            var bullet = LeanPool.Spawn(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             //bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
             bullet.GetComponent<Rigidbody>().AddForce(bulletSpawnPoint.forward * bulletSpeed , ForceMode.Impulse);
         }

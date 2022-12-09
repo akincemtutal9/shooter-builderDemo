@@ -24,6 +24,5 @@ namespace GameAssets.Scripts
                 target.localScale = scale;
             }).AddTo(target);
         }
-        
     }
 }

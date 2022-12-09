@@ -11,21 +11,18 @@ public class TargetDie : HealthDependentBehaviour
     public float Current => health.Current;  
     void Start()
     {
-        Observable.ReturnUnit().DelayFrame(1).Subscribe(_ =>
-        {
-        
-        health.Observe.Subscribe(current =>
+       // Observable.ReturnUnit().DelayFrame(1).Subscribe(_ =>
+        //{
+            health.Observe.Subscribe(current =>
             {
                 var _health = target.GetComponent<Health>().Current;
                 _health = current;
-                target.GetComponent<Health>().Current = _health;
                 if (_health <= 0)
                 {
                     LeanPool.Despawn(gameObject);
                 }
-            }
-        ).AddTo(gameObject);
-        });
+            }).AddTo(gameObject);
+        //});
         
     }
 
