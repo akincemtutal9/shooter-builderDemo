@@ -201,6 +201,7 @@ MonoBehaviour:
   gunRange: 0
   fireRate: 0
   laserDuration: 0
+  waitForShootLaser: 0
   laserDamage: 0
   _gameSettings: {fileID: 11400000, guid: 925bf16ddb98a794190fe796ad1422a0, type: 2}
 --- !u!1 &4620322810453874634
@@ -246,6 +247,7 @@ GameObject:
   - component: {fileID: 1565410439270212133}
   - component: {fileID: 1700219509078988348}
   - component: {fileID: 8688828047099628719}
+  - component: {fileID: 8787934202290503330}
   m_Layer: 3
   m_Name: RegularGun
   m_TagString: Untagged
@@ -332,6 +334,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8787934202290503330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4743901447374646193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5f4645e56afd64f8ee5bb42963408d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  bulletSpawnPoint: {fileID: 7440081269397247942}
+  bulletSpeed: 0
+  nextFireCheck: 0
+  fireRate: 0
+  _gameSettings: {fileID: 11400000, guid: 925bf16ddb98a794190fe796ad1422a0, type: 2}
+  bulletBlue: {fileID: 2096016091030857551, guid: 5f1bc738b749ad446930f206543a1408, type: 3}
+  bulletGreen: {fileID: 2096016091030857551, guid: 42932534399825d47a72d5cfe43d9ed7, type: 3}
+  bulletBlack: {fileID: 2096016091030857551, guid: b5242fa9c1c02f44088035ecbe8c195b, type: 3}
 --- !u!1 &7440081268414565963
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +473,7 @@ MonoBehaviour:
   rotateSpeed: 0
   floatingJoystick: {fileID: 0}
   _gameSettings: {fileID: 11400000, guid: 925bf16ddb98a794190fe796ad1422a0, type: 2}
+  moveDirection: {x: 0, y: 0, z: 0}
 --- !u!54 &5776779430706416688
 Rigidbody:
   m_ObjectHideFlags: 0

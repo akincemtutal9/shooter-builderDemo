@@ -1,12 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Timers;
-using GameAssets.Scripts;
-using Lean.Pool;
-using UniRx;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PushBullets : MonoBehaviour
@@ -42,6 +33,7 @@ public class PushBullets : MonoBehaviour
             collision.gameObject.GetComponent<Health>().Remove(damage);
             collision.gameObject.transform.Translate(-direction.normalized * pushForce * Time.deltaTime);
             Destroy(gameObject);
+            
         }
         // Destroy etsin asobservable a bak
         // 

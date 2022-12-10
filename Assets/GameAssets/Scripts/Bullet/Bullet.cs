@@ -30,7 +30,5 @@ public class Bullet : MonoBehaviour
             collision.gameObject.GetComponent<Health>().Remove(damage);
             Destroy(gameObject);
         }
-        // Destroy etsin asobservable a bak
-        // 
     }
 }

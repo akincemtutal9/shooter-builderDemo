@@ -13,7 +13,10 @@ public class Shoot : MonoBehaviour
     [SerializeField] public float fireRate;
 
     [SerializeField] private GameSettings _gameSettings;
-    
+
+    public GameObject bulletBlue;
+    public GameObject bulletGreen;
+    public GameObject bulletBlack;
     private void Start()
     {
         bulletPrefab = _gameSettings.bulletPrefab;
@@ -26,6 +29,20 @@ public class Shoot : MonoBehaviour
     void Update()
     {
         Shooting();
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log("Q bastın");
+            bulletPrefab = bulletBlue;
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            bulletPrefab = bulletGreen;
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            bulletPrefab = bulletBlack;
+        }
+        
     }
 
     public void Shooting()
@@ -33,7 +50,7 @@ public class Shoot : MonoBehaviour
         if (Time.time > nextFireCheck)
         {
             nextFireCheck = Time.time + fireRate;
-            var bullet = LeanPool.Spawn(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             //bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
             bullet.GetComponent<Rigidbody>().AddForce(bulletSpawnPoint.forward * bulletSpeed , ForceMode.Impulse);
         }

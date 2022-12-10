@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8291216279811371535
+--- !u!1001 &1488711053004354957
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,11 +9,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 702136405519766210, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
       propertyPath: m_Name
-      value: RegularBullet
+      value: PushBulletBlack
+      objectReference: {fileID: 0}
+    - target: {fileID: 702136405519766210, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_TagString
+      value: Black
       objectReference: {fileID: 0}
     - target: {fileID: 4217887782628933284, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217887782628933284, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217887782628933284, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217887782628933284, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4217887782628933284, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55,25 +71,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8614545114448623848, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72c44f820e292664ead684b85643fada, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
---- !u!1 &8840051566359060685 stripped
+--- !u!1 &2096016091030857551 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 702136405519766210, guid: d53e456acc88ca2489f27d0746e8a301, type: 3}
-  m_PrefabInstance: {fileID: 8291216279811371535}
+  m_PrefabInstance: {fileID: 1488711053004354957}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5225928042265149517
+--- !u!114 &4366930043904083717
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8840051566359060685}
+  m_GameObject: {fileID: 2096016091030857551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7daa6fc645521d4080c7a6f582e30e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bccfaaed670cd74ba9bebe0fdcade83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeOfBullet: 0
-  damage: 0
-  _gameSettings: {fileID: 11400000, guid: 925bf16ddb98a794190fe796ad1422a0, type: 2}
+  lifeOfBullet: 2
+  damage: 1
